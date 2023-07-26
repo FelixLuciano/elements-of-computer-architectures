@@ -1,0 +1,14 @@
+DEPTH = 8;
+WIDTH = 9;
+ADDRESS_RADIX = DEC;
+DATA_RADIX = DEC;
+
+CONTENT BEGIN
+    0: 495;  -- KEY0 interrupt
+    1: 479;  -- KEY1 interrupt
+    2: 463;  -- KEY2 interrupt
+    3: 447;  -- KEY3 interrupt
+    4: 431;  -- KEY4 interrupt
+    5: 415;  -- TC0 interrupt
+    6: 399;  -- TC1 interrupt
+END;

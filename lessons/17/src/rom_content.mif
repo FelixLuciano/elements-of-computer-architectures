@@ -1,0 +1,19 @@
+WIDTH=32;
+DEPTH=64;
+ADDRESS_RADIX=DEC;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+    0    :   AC090008; --sw $t1 8($zero)     (m(8) := 0x0000000A)
+    1    :   8C080008; --lw $t0 8($zero)     ($t0  := 0x0000000A)
+    2    :   012A4022; --sub $t0 $t1 $t2     ($t0  := 0xFFFFFFFF)
+    3    :   012A4024; --and $t0 $t1 $t2     ($t0  := 0x0000000A)
+    4    :   012A4025; --or $t0 $t1 $t2      ($t0  := 0x0000000B)
+    5    :   012A402A; --slt $t0 $t1 $t2     ($t0  := 0x00000001)
+    6    :   010A4020; --add $t0 $t0 $t2     ($t0  := 0x0000000C)
+                       --segunda execução:   ($t0 := 0x00000017)
+    7    :   110BFFFE; --beq $t0 $t3 0xFFFE  (pc := #6)
+                       --segunda execução:   (pc := #8)
+    8    :   08000000; --j 0x000000          (pc := #0)
+   [9..63]  : 00000000;
+END;
